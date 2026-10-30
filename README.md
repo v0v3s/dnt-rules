@@ -14,14 +14,19 @@ to use and add to:
 
 ## Using them
 
-A file of rules is a list of `[[feature]]` blocks, one per feature. Your
-rules for a feature replace dnt's own.
+dnt reads this library itself: tick a folder, a file or single rules and
+import them, and they become your rules (your rules for a feature replace
+dnt's own; where you have rules of your own, it asks before overwriting).
 
-- **The terminal app:** copy the files into dnt's rules folder,
-  `library/overlays/` in its data folder (`~/.local/share/dnt` on Linux,
-  `%APPDATA%\dnt` on Windows), and start dnt again.
-- **The app:** open the feature on a character's sheet, its *rules*, and
-  paste the feature's block.
+- **The app:** *Data › Rules library*.
+- **The terminal app:** `L` on **4 Campaigns**, or from the shell:
+  `dnt rules` lists the library, `dnt rules import srd` (a folder, a file
+  such as `srd/classes`, or a rule's id) imports.
+
+By hand: a file of rules is a list of `[[feature]]` blocks, one per
+feature; copy it into dnt's rules folder, `library/overlays/` in its data
+folder (`~/.local/share/dnt` on Linux, `%APPDATA%\dnt` on Windows), or
+paste a block into a feature's *rules* in the app.
 
 ## Writing rules
 
