@@ -1,0 +1,85 @@
+# Rules for the SRD 5.2.1's class features that dnt does not have built in.
+# (dnt's built-in rules already cover many: Rage, Bardic Inspiration,
+# Channel Divinity, Wild Shape, Second Wind, Martial Arts, Sneak Attack,
+# Arcane Recovery…)
+
+# ---- Cleric ----
+
+[[feature]]
+id = "classFeature:Thaumaturge|Cleric|SRD52|1"
+[[feature.effect]]
+target = "skill.arcana"
+add = "max(1, mod.wis)"
+[[feature.effect]]
+target = "skill.religion"
+add = "max(1, mod.wis)"
+
+# ---- Druid ----
+
+[[feature]]
+id = "classFeature:Magician|Druid|SRD52|1"
+[[feature.effect]]
+target = "skill.arcana"
+add = "max(1, mod.wis)"
+[[feature.effect]]
+target = "skill.nature"
+add = "max(1, mod.wis)"
+
+# ---- Ranger ----
+
+[[feature]]
+id = "classFeature:Roving|Ranger|SRD52|6"
+[[feature.effect]]
+target = "speed"
+add = "10"
+when = "not armor.heavy"
+
+[[feature]]
+id = "classFeature:Tireless|Ranger|SRD52|10"
+[[feature.resource]]
+key = "tireless"
+name = "Tireless"
+max = "max(1, mod.wis)"
+recharge = "long_rest"
+
+# ---- Rogue ----
+
+[[feature]]
+id = "classFeature:Stroke of Luck|Rogue|SRD52|20"
+[[feature.resource]]
+key = "stroke_of_luck"
+name = "Stroke of Luck"
+max = "1"
+recharge = "short_rest"
+
+# ---- Level 20: scores over 20 ----
+
+[[feature]]
+id = "classFeature:Primal Champion|Barbarian|SRD52|20"
+[[feature.effect]]
+target = "str"
+add = "4"
+[[feature.effect]]
+target = "con"
+add = "4"
+
+[[feature]]
+id = "classFeature:Body and Mind|Monk|SRD52|20"
+[[feature.effect]]
+target = "dex"
+add = "4"
+[[feature.effect]]
+target = "wis"
+add = "4"
+
+# ---- Sorcerer: Draconic Sorcery ----
+
+[[feature]]
+id = "subclassFeature:Draconic Resilience|Sorcerer|SRD52|Draconic|SRD52|3"
+[[feature.effect]]
+target = "hp.max"
+add = "class.sorcerer.level"
+[[feature.effect]]
+target = "ac"
+max = "10 + mod.dex + mod.cha + armor.shield"
+when = "armor.none"

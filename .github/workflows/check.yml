@@ -1,0 +1,28 @@
+name: check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          path: rules
+      - uses: actions/checkout@v7
+        with:
+          repository: v0v3s/dungeons-n-terminals
+          path: dnt
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: dnt
+      - name: SRD rules, against the SRD
+        working-directory: dnt
+        run: cargo run -q -p dnt-rules --example check_overlays -- data/srd ../rules/srd/*.toml
+      - name: Homebrew rules (the homebrew is not here)
+        working-directory: dnt
+        run: cargo run -q -p dnt-rules --example check_overlays -- --parse-only data/srd ../rules/homebrew/*.toml

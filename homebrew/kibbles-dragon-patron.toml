@@ -1,0 +1,19 @@
+# The Dragon, a Warlock patron by KibblesTasty (a free download of his
+# homebrew). Only the rules are here: import the homebrew itself to use
+# them. It is written for the 2014 Warlock: its features come at levels 1,
+# 6, 10 and 14.
+
+[[feature]]
+id = "subclassFeature:Elemental Devastation|Warlock|PHB|Dragon|KibDragonPatron|6|KibDragonPatron"
+[[feature.resource]]
+key = "elemental_devastation"
+name = "Elemental Devastation"
+max = "prof"
+recharge = "long_rest"
+
+[[feature]]
+id = "optionalfeature:Dragon Scales|KibDragonPatron"
+[[feature.effect]]
+target = "ac"
+max = "13 + mod.dex + armor.shield"
+when = "armor.none"

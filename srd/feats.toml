@@ -1,0 +1,11 @@
+# Rules for the SRD 5.2.1's feats that dnt does not have built in.
+
+# Improve Fate comes back when you roll Initiative or finish a Long Rest:
+# the sheet brings it back on a Long Rest; restore it by hand at Initiative.
+[[feature]]
+id = "feat:Boon of Fate|SRD52"
+[[feature.resource]]
+key = "improve_fate"
+name = "Improve Fate"
+max = "1"
+recharge = "long_rest"
