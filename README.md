@@ -11,6 +11,7 @@ to use and add to:
 |---|---|
 | [`srd/`](srd) | the SRD 5.2.1, which dnt has built in |
 | [`homebrew/`](homebrew) | homebrew (only the rules: import the homebrew itself into dnt) |
+| [`books/`](books) | published books dnt does not have (only the rules: import the book itself into dnt) |
 
 ## Using them
 
@@ -52,7 +53,7 @@ type.
 
 Pull requests are welcome:
 
-- one file per book or homebrew, in `srd/` or `homebrew/`;
+- one file per book or homebrew, in `srd/`, `books/` or `homebrew/`;
 - rules only: no text of the book or homebrew they are for (a short
   comment on what a rule does is fine), and the homebrew's author named
   at the top of its file;

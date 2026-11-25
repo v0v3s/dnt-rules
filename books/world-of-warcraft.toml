@@ -1,0 +1,1428 @@
+# The World of Warcraft book's classes and subclasses. Only the rules are
+# here: import the book itself to use them.
+#
+# Its classes are the 2024 classes they are made from (the Shaman is the
+# Barbarian, the Warrior the Fighter, …), so first come dnt's built-in
+# rules for those classes, copied for each WoW class (the same rules,
+# naming it). Then the rules for the book's own features.
+
+# ======== The 2024 classes' rules, for the WoW classes ========
+
+# ---- Death Knight (the Paladin) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Death Knight|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Death Knight|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Death Knight|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Weapon Mastery|Paladin|XPHB|1"
+class = "Death Knight|WoW"
+[[feature.choice]]
+pick = "weapon_mastery"
+count = "2"
+
+[[feature]]
+id = "classFeature:Lay on Hands|Paladin|XPHB|1"
+class = "Death Knight|WoW"
+[[feature.resource]]
+key = "lay_on_hands"
+name = "Lay on Hands pool"
+max = "5 * level('Death Knight')"
+recharge = "long_rest"
+
+[[feature]]
+id = "classFeature:Channel Divinity|Paladin|XPHB|3"
+class = "Death Knight|WoW"
+name = "Channel Divinity (Paladin)"
+[[feature.resource]]
+key = "channel_divinity_paladin"
+name = "Channel Divinity"
+max = "class.death_knight.channel_divinity"
+recharge = "long_rest"
+short_rest_regain = "1"
+
+[[feature]]
+id = "classFeature:Aura of Protection|Paladin|XPHB|6"
+class = "Death Knight|WoW"
+[[feature.effect]]
+target = "save.str"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.dex"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.con"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.int"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.wis"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.cha"
+add = "max(1, mod.cha)"
+
+[[feature]]
+id = "classFeature:Radiant Strikes|Paladin|XPHB|11"
+class = "Death Knight|WoW"
+[[feature.effect]]
+target = "rider.radiant_strikes"
+set = "1d8"
+origin = "Radiant Strikes: radiant, on every melee weapon or Unarmed Strike hit"
+
+# ---- Demon Hunter (the Ranger) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Demon Hunter|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Demon Hunter|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Demon Hunter|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Weapon Mastery|Ranger|XPHB|1"
+class = "Demon Hunter|WoW"
+[[feature.choice]]
+pick = "weapon_mastery"
+count = "2"
+
+[[feature]]
+id = "classFeature:Favored Enemy|Ranger|XPHB|1"
+class = "Demon Hunter|WoW"
+[[feature.resource]]
+key = "favored_enemy"
+name = "Favored Enemy (free Hunter's Mark)"
+max = "class.demon_hunter.favored_enemy"
+recharge = "long_rest"
+
+# ---- Druid (the Druid) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Druid|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Druid|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Druid|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Wild Shape|Druid|XPHB|2"
+class = "Druid|WoW"
+[[feature.resource]]
+key = "wild_shape"
+name = "Wild Shape"
+max = "class.druid.wild_shape"
+recharge = "long_rest"
+short_rest_regain = "1"
+[[feature.toggle]]
+key = "wild_shaped"
+name = "Wild Shaped"
+
+[[feature]]
+id = "classFeature:Primal Strike|Druid|XPHB|7"
+class = "Druid|WoW"
+[[feature.effect]]
+target = "rider.primal_strike"
+set = "if(class.druid.level >= 15, 2d8, 1d8)"
+origin = "Primal Strike: cold, fire, lightning or thunder, once per turn on a weapon or Beast-form hit"
+
+# ---- Evoker (the Sorcerer) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Evoker|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Evoker|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Evoker|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Font of Magic|Sorcerer|XPHB|2"
+class = "Evoker|WoW"
+[[feature.resource]]
+key = "sorcery_points"
+name = "Sorcery Points"
+max = "class.evoker.sorcery_points"
+recharge = "long_rest"
+
+[[feature]]
+id = "classFeature:Innate Sorcery|Sorcerer|XPHB|1"
+class = "Evoker|WoW"
+[[feature.resource]]
+key = "innate_sorcery"
+name = "Innate Sorcery"
+max = "2"
+recharge = "long_rest"
+[[feature.toggle]]
+key = "innate_sorcery"
+name = "Innate Sorcery active"
+
+# ---- Hunter (the Ranger) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Hunter|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Hunter|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Hunter|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Weapon Mastery|Ranger|XPHB|1"
+class = "Hunter|WoW"
+[[feature.choice]]
+pick = "weapon_mastery"
+count = "2"
+
+[[feature]]
+id = "classFeature:Favored Enemy|Ranger|XPHB|1"
+class = "Hunter|WoW"
+[[feature.resource]]
+key = "favored_enemy"
+name = "Favored Enemy (free Hunter's Mark)"
+max = "class.hunter.favored_enemy"
+recharge = "long_rest"
+
+# ---- Mage (the Wizard) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Mage|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Mage|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Mage|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Arcane Recovery|Wizard|XPHB|1"
+class = "Mage|WoW"
+[[feature.resource]]
+key = "arcane_recovery"
+name = "Arcane Recovery"
+max = "1"
+recharge = "long_rest"
+
+# ---- Monk (the Monk) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Monk|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Monk|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Monk|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Monk's Focus|Monk|XPHB|2"
+class = "Monk|WoW"
+[[feature.resource]]
+key = "focus"
+name = "Focus Points"
+max = "class.monk.focus_points"
+recharge = "short_rest"
+
+[[feature]]
+id = "classFeature:Martial Arts|Monk|XPHB|1"
+class = "Monk|WoW"
+# Monk weapons: simple melee weapons and Light martial melee weapons.
+[[feature.attack]]
+kind = "monk weapon"
+weapons = "weapon.melee and (weapon.simple or (weapon.martial and weapon.light))"
+ability = "max(mod.str, mod.dex)"
+die = "class.monk.martial_arts"
+[[feature.effect]]
+target = "attack.unarmed.mod"
+set = "max(mod.str, mod.dex)"
+[[feature.effect]]
+target = "attack.unarmed.damage"
+set = "class.monk.martial_arts + attack.unarmed.mod"
+
+[[feature]]
+id = "classFeature:Unarmored Defense|Monk|XPHB|1"
+class = "Monk|WoW"
+name = "Unarmored Defense (Monk)"
+[[feature.effect]]
+target = "ac"
+max = "10 + mod.dex + mod.wis"
+when = "armor.none and armor.shield == 0"
+
+[[feature]]
+id = "classFeature:Unarmored Movement|Monk|XPHB|2"
+class = "Monk|WoW"
+[[feature.effect]]
+target = "speed"
+add = "class.monk.unarmored_movement"
+when = "armor.none and armor.shield == 0"
+
+# ---- Paladin (the Paladin) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Paladin|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Paladin|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Paladin|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Weapon Mastery|Paladin|XPHB|1"
+class = "Paladin|WoW"
+[[feature.choice]]
+pick = "weapon_mastery"
+count = "2"
+
+[[feature]]
+id = "classFeature:Lay on Hands|Paladin|XPHB|1"
+class = "Paladin|WoW"
+[[feature.resource]]
+key = "lay_on_hands"
+name = "Lay on Hands pool"
+max = "5 * level('Paladin')"
+recharge = "long_rest"
+
+[[feature]]
+id = "classFeature:Channel Divinity|Paladin|XPHB|3"
+class = "Paladin|WoW"
+name = "Channel Divinity (Paladin)"
+[[feature.resource]]
+key = "channel_divinity_paladin"
+name = "Channel Divinity"
+max = "class.paladin.channel_divinity"
+recharge = "long_rest"
+short_rest_regain = "1"
+
+[[feature]]
+id = "classFeature:Aura of Protection|Paladin|XPHB|6"
+class = "Paladin|WoW"
+[[feature.effect]]
+target = "save.str"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.dex"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.con"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.int"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.wis"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "save.cha"
+add = "max(1, mod.cha)"
+
+[[feature]]
+id = "classFeature:Radiant Strikes|Paladin|XPHB|11"
+class = "Paladin|WoW"
+[[feature.effect]]
+target = "rider.radiant_strikes"
+set = "1d8"
+origin = "Radiant Strikes: radiant, on every melee weapon or Unarmed Strike hit"
+
+# ---- Priest (the Cleric) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Priest|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Priest|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Priest|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Channel Divinity|Cleric|XPHB|2"
+class = "Priest|WoW"
+name = "Channel Divinity (Cleric)"
+[[feature.resource]]
+key = "channel_divinity_cleric"
+name = "Channel Divinity"
+max = "class.priest.channel_divinity"
+recharge = "long_rest"
+short_rest_regain = "1"
+
+[[feature]]
+id = "classFeature:Divine Intervention|Cleric|XPHB|10"
+class = "Priest|WoW"
+[[feature.resource]]
+key = "divine_intervention"
+name = "Divine Intervention"
+max = "1"
+recharge = "long_rest"
+
+[[feature]]
+id = "classFeature:Divine Strike|Cleric|XPHB|7"
+class = "Priest|WoW"
+[[feature.effect]]
+target = "rider.divine_strike"
+set = "if(class.priest.level >= 14, 2d8, 1d8)"
+origin = "Divine Strike: necrotic or radiant, once per turn on a weapon hit"
+
+# ---- Rogue (the Rogue) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Rogue|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Rogue|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Rogue|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Weapon Mastery|Rogue|XPHB|1"
+class = "Rogue|WoW"
+[[feature.choice]]
+pick = "weapon_mastery"
+count = "2"
+
+[[feature]]
+id = "classFeature:Sneak Attack|Rogue|XPHB|1"
+class = "Rogue|WoW"
+[[feature.effect]]
+target = "rider.sneak_attack"
+set = "class.rogue.sneak_attack"
+origin = "Sneak Attack: once per turn, a Finesse or ranged weapon, with Advantage or an ally next to the target"
+
+[[feature]]
+id = "subclassFeature:Psionic Power|Rogue|XPHB|Soulknife|XPHB|3"
+class = "Rogue|WoW"
+[[feature.resource]]
+key = "psionic_energy"
+name = "Psionic Energy Dice"
+max = "2 * prof"
+recharge = "long_rest"
+short_rest_regain = "1"
+
+# ---- Shaman (the Barbarian) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Shaman|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Shaman|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Shaman|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Weapon Mastery|Barbarian|XPHB|1"
+class = "Shaman|WoW"
+[[feature.choice]]
+pick = "weapon_mastery"
+count = "class.shaman.weapon_mastery"
+
+[[feature]]
+id = "classFeature:Rage|Barbarian|XPHB|1"
+class = "Shaman|WoW"
+[[feature.resource]]
+key = "rage"
+name = "Rage"
+max = "class.shaman.rages"
+recharge = "long_rest"
+short_rest_regain = "1"
+[[feature.toggle]]
+key = "raging"
+name = "Raging"
+[[feature.effect]]
+target = "attack.strength.damage"
+add = "class.shaman.rage_damage"
+when = "toggle('raging')"
+
+[[feature]]
+id = "classFeature:Unarmored Defense|Barbarian|XPHB|1"
+class = "Shaman|WoW"
+name = "Unarmored Defense (Barbarian)"
+[[feature.effect]]
+target = "ac"
+max = "10 + mod.dex + mod.con + armor.shield"
+when = "armor.none"
+
+[[feature]]
+id = "classFeature:Fast Movement|Barbarian|XPHB|5"
+class = "Shaman|WoW"
+[[feature.effect]]
+target = "speed"
+add = "10"
+when = "not armor.heavy"
+
+[[feature]]
+id = "classFeature:Brutal Strike|Barbarian|XPHB|9"
+class = "Shaman|WoW"
+[[feature.effect]]
+target = "rider.brutal_strike"
+set = "if(class.shaman.level >= 17, 2d10, 1d10)"
+origin = "Brutal Strike: with Reckless Attack, forgo Advantage on one Strength attack"
+
+# ---- Warlock (the Warlock) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Warlock|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Warlock|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Warlock|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Magical Cunning|Warlock|XPHB|2"
+class = "Warlock|WoW"
+[[feature.resource]]
+key = "magical_cunning"
+name = "Magical Cunning"
+max = "1"
+recharge = "long_rest"
+
+[[feature]]
+id = "classFeature:Mystic Arcanum|Warlock|XPHB|11"
+class = "Warlock|WoW"
+name = "Mystic Arcanum (level 6 spell)"
+[[feature.spell]]
+choose = "level=6|class=Warlock"
+grant = "free"
+uses = 1
+
+[[feature]]
+id = "classFeature:Mystic Arcanum|Warlock|XPHB|13"
+class = "Warlock|WoW"
+name = "Mystic Arcanum (level 7 spell)"
+[[feature.spell]]
+choose = "level=7|class=Warlock"
+grant = "free"
+uses = 1
+
+[[feature]]
+id = "classFeature:Mystic Arcanum|Warlock|XPHB|15"
+class = "Warlock|WoW"
+name = "Mystic Arcanum (level 8 spell)"
+[[feature.spell]]
+choose = "level=8|class=Warlock"
+grant = "free"
+uses = 1
+
+[[feature]]
+id = "classFeature:Mystic Arcanum|Warlock|XPHB|17"
+class = "Warlock|WoW"
+name = "Mystic Arcanum (level 9 spell)"
+[[feature.spell]]
+choose = "level=9|class=Warlock"
+grant = "free"
+uses = 1
+
+# ---- Warrior (the Fighter) ----
+
+[[feature]]
+id = "classFeature:Ability Score Improvement|*|*|*"
+class = "Warrior|WoW"
+[[feature.choice]]
+pick = "ability_increase"
+feats = ["G"]
+
+[[feature]]
+id = "classFeature:Epic Boon|*|*|*"
+class = "Warrior|WoW"
+[[feature.choice]]
+pick = "feat"
+feats = ["EB", "G"]
+
+[[feature]]
+id = "classFeature:Expertise|*|*|*"
+class = "Warrior|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "2"
+
+[[feature]]
+id = "classFeature:Weapon Mastery|Fighter|XPHB|1"
+class = "Warrior|WoW"
+[[feature.choice]]
+pick = "weapon_mastery"
+count = "class.warrior.weapon_mastery"
+
+[[feature]]
+id = "classFeature:Second Wind|Fighter|XPHB|1"
+class = "Warrior|WoW"
+[[feature.resource]]
+key = "second_wind"
+name = "Second Wind"
+max = "class.warrior.second_wind"
+recharge = "long_rest"
+short_rest_regain = "1"
+
+[[feature]]
+id = "classFeature:Action Surge|Fighter|XPHB|2"
+class = "Warrior|WoW"
+[[feature.resource]]
+key = "action_surge"
+name = "Action Surge"
+max = "scale(level('Warrior'), {2: 1, 17: 2})"
+recharge = "short_rest"
+
+[[feature]]
+id = "classFeature:Indomitable|Fighter|XPHB|9"
+class = "Warrior|WoW"
+[[feature.resource]]
+key = "indomitable"
+name = "Indomitable"
+max = "scale(level('Warrior'), {9: 1, 13: 2, 17: 3})"
+recharge = "long_rest"
+
+[[feature]]
+id = "subclassFeature:Combat Superiority|Fighter|XPHB|Battle Master|XPHB|3"
+class = "Warrior|WoW"
+[[feature.resource]]
+key = "superiority_dice"
+name = "Superiority Dice"
+max = "scale(level('Warrior'), {3: 4, 7: 5, 15: 6})"
+recharge = "short_rest"
+
+[[feature]]
+id = "subclassFeature:Psionic Power|Fighter|XPHB|Psi Warrior|XPHB|3"
+class = "Warrior|WoW"
+[[feature.resource]]
+key = "psionic_energy"
+name = "Psionic Energy Dice"
+max = "2 * prof"
+recharge = "long_rest"
+short_rest_regain = "1"
+
+# ======== The book's own features ========
+
+# ---- Barbarian ----
+
+# Primal Knowledge Totem: once per Long Rest (or a Rage spent).
+[[feature]]
+id = "classFeature:Totems|Barbarian|XPHB|3|WoW"
+[[feature.resource]]
+key = "primal_knowledge_totem"
+name = "Primal Knowledge Totem"
+max = "1"
+recharge = "long_rest"
+
+# The three Raging Elements options: Rage Damage dice of each.
+[[feature]]
+id = "subclassFeature:Raging Elements|Barbarian|XPHB|Elements|WoW|3|WoW"
+[[feature.action]]
+name = "Icefury"
+when = "toggle('raging')"
+attack = "mod.con + prof + d20.bonus"
+damage = "dice(class.barbarian.rage_damage, 8)"
+damage_type = "cold"
+note = "a Bonus Action; 30 ft; the target's next Fire damage is 1d10 more"
+[[feature.action]]
+name = "Lava Burst"
+when = "toggle('raging')"
+save = "dex"
+dc = "8 + mod.con + prof"
+damage = "dice(class.barbarian.rage_damage, 4)"
+damage_type = "fire"
+note = "a Bonus Action; 30 ft; half on a save; on a fail its next Lightning damage is 1d8 more"
+[[feature.action]]
+name = "Lightning Bolt"
+when = "toggle('raging')"
+save = "dex"
+dc = "8 + mod.con + prof"
+damage = "dice(class.barbarian.rage_damage, 6)"
+damage_type = "lightning"
+note = "a Bonus Action; 30 ft; half on a save; on a fail its next Cold damage is 1d6 more"
+
+# Resistance to cold, fire and lightning while raging.
+[[feature]]
+id = "subclassFeature:Primordial Bond|Barbarian|XPHB|Elements|WoW|10|WoW"
+[[feature.defense]]
+resist = ["cold", "fire", "lightning"]
+when = "toggle('raging')"
+
+# Strike: 1d4 more on a weapon or Unarmed Strike hit while raging.
+[[feature]]
+id = "subclassFeature:Spiritual Protectors|Barbarian|XPHB|Spiritual Guardian|WoW|3|WoW"
+[[feature.effect]]
+target = "rider.spiritual_protectors"
+set = "1d4"
+when = "toggle('raging')"
+origin = "Spiritual Protectors (Strike): cold, fire or lightning, on a weapon or Unarmed Strike hit while raging"
+
+# ---- Shaman (the Barbarian's features) ----
+
+# Primal Knowledge Totem: once per Long Rest (or a Rage spent).
+[[feature]]
+id = "classFeature:Totems|Barbarian|XPHB|3|WoW"
+class = "Shaman|WoW"
+[[feature.resource]]
+key = "primal_knowledge_totem"
+name = "Primal Knowledge Totem"
+max = "1"
+recharge = "long_rest"
+
+# The three Raging Elements options: Rage Damage dice of each.
+[[feature]]
+id = "subclassFeature:Raging Elements|Barbarian|XPHB|Elements|WoW|3|WoW"
+class = "Shaman|WoW"
+[[feature.action]]
+name = "Icefury"
+when = "toggle('raging')"
+attack = "mod.con + prof + d20.bonus"
+damage = "dice(class.shaman.rage_damage, 8)"
+damage_type = "cold"
+note = "a Bonus Action; 30 ft; the target's next Fire damage is 1d10 more"
+[[feature.action]]
+name = "Lava Burst"
+when = "toggle('raging')"
+save = "dex"
+dc = "8 + mod.con + prof"
+damage = "dice(class.shaman.rage_damage, 4)"
+damage_type = "fire"
+note = "a Bonus Action; 30 ft; half on a save; on a fail its next Lightning damage is 1d8 more"
+[[feature.action]]
+name = "Lightning Bolt"
+when = "toggle('raging')"
+save = "dex"
+dc = "8 + mod.con + prof"
+damage = "dice(class.shaman.rage_damage, 6)"
+damage_type = "lightning"
+note = "a Bonus Action; 30 ft; half on a save; on a fail its next Cold damage is 1d6 more"
+
+# Resistance to cold, fire and lightning while raging.
+[[feature]]
+id = "subclassFeature:Primordial Bond|Barbarian|XPHB|Elements|WoW|10|WoW"
+class = "Shaman|WoW"
+[[feature.defense]]
+resist = ["cold", "fire", "lightning"]
+when = "toggle('raging')"
+
+# Strike: 1d4 more on a weapon or Unarmed Strike hit while raging.
+[[feature]]
+id = "subclassFeature:Spiritual Protectors|Barbarian|XPHB|Spiritual Guardian|WoW|3|WoW"
+class = "Shaman|WoW"
+[[feature.effect]]
+target = "rider.spiritual_protectors"
+set = "1d4"
+when = "toggle('raging')"
+origin = "Spiritual Protectors (Strike): cold, fire or lightning, on a weapon or Unarmed Strike hit while raging"
+
+# ---- Cleric ----
+
+# A Channel Divinity: a radiant bolt that also heals a creature.
+[[feature]]
+id = "subclassFeature:Holy Bolt|Cleric|XPHB|Discipline|WoW|3|WoW"
+[[feature.action]]
+name = "Holy Bolt"
+attack = "spell.cleric.attack"
+damage = "dice(2, 10) + mod.wis"
+damage_type = "radiant"
+heal = "dice(1, 10) + mod.wis"
+resource = "channel_divinity_cleric"
+note = "a Bonus Action, 60 ft; on a hit a creature you see within 60 ft regains the heal"
+
+# A Channel Divinity: temporary hit points, and Resistance to all damage while they last.
+[[feature]]
+id = "subclassFeature:Luminous Barrier|Cleric|XPHB|Discipline|WoW|6|WoW"
+[[feature.action]]
+name = "Luminous Barrier"
+temp_hp = "level('Cleric') + mod.wis"
+resource = "channel_divinity_cleric"
+note = "a Bonus Action: each creature Atonement blessed gains them"
+[[feature.toggle]]
+key = "luminous_barrier"
+name = "Luminous Barrier"
+[[feature.defense]]
+resist = ["all"]
+when = "toggle('luminous_barrier')"
+
+# Wisdom-modifier uses: 1d10 necrotic to a creature failing a save, healing you as much.
+[[feature]]
+id = "subclassFeature:Devouring Plague|Cleric|XPHB|Shadow|WoW|3|WoW"
+[[feature.resource]]
+key = "devouring_plague"
+name = "Devouring Plague"
+max = "max(1, mod.wis)"
+recharge = "long_rest"
+[[feature.action]]
+name = "Devouring Plague"
+damage = "dice(1, 10)"
+damage_type = "necrotic"
+resource = "devouring_plague"
+note = "when a creature you see within 30 ft fails a save; you regain as many hit points"
+
+# Shadowform: 1d6 more on one damage roll of a psychic or necrotic slot spell.
+[[feature]]
+id = "subclassFeature:Shadowform|Cleric|XPHB|Shadow|WoW|3|WoW"
+[[feature.toggle]]
+key = "shadowform"
+name = "Shadowform"
+[[feature.effect]]
+target = "rider.void_empowerment"
+set = "1d6"
+when = "toggle('shadowform')"
+origin = "Void Empowerment: one damage roll of a slot spell dealing psychic or necrotic damage"
+
+# Once per rest: dispersed, Resistance to all damage and a Fly Speed of 40 ft.
+[[feature]]
+id = "subclassFeature:Dispersion|Cleric|XPHB|Shadow|WoW|6|WoW"
+[[feature.resource]]
+key = "dispersion"
+name = "Dispersion"
+max = "1"
+recharge = "short_rest"
+[[feature.toggle]]
+key = "dispersed"
+name = "Dispersed"
+[[feature.defense]]
+resist = ["all"]
+when = "toggle('dispersed')"
+[[feature.effect]]
+target = "speed.fly"
+max = "40"
+when = "toggle('dispersed')"
+
+# ---- Priest (the Cleric's features) ----
+
+# A Channel Divinity: a radiant bolt that also heals a creature.
+[[feature]]
+id = "subclassFeature:Holy Bolt|Cleric|XPHB|Discipline|WoW|3|WoW"
+class = "Priest|WoW"
+[[feature.action]]
+name = "Holy Bolt"
+attack = "spell.priest.attack"
+damage = "dice(2, 10) + mod.wis"
+damage_type = "radiant"
+heal = "dice(1, 10) + mod.wis"
+resource = "channel_divinity_cleric"
+note = "a Bonus Action, 60 ft; on a hit a creature you see within 60 ft regains the heal"
+
+# A Channel Divinity: temporary hit points, and Resistance to all damage while they last.
+[[feature]]
+id = "subclassFeature:Luminous Barrier|Cleric|XPHB|Discipline|WoW|6|WoW"
+class = "Priest|WoW"
+[[feature.action]]
+name = "Luminous Barrier"
+temp_hp = "level('Priest') + mod.wis"
+resource = "channel_divinity_cleric"
+note = "a Bonus Action: each creature Atonement blessed gains them"
+[[feature.toggle]]
+key = "luminous_barrier"
+name = "Luminous Barrier"
+[[feature.defense]]
+resist = ["all"]
+when = "toggle('luminous_barrier')"
+
+# Wisdom-modifier uses: 1d10 necrotic to a creature failing a save, healing you as much.
+[[feature]]
+id = "subclassFeature:Devouring Plague|Cleric|XPHB|Shadow|WoW|3|WoW"
+class = "Priest|WoW"
+[[feature.resource]]
+key = "devouring_plague"
+name = "Devouring Plague"
+max = "max(1, mod.wis)"
+recharge = "long_rest"
+[[feature.action]]
+name = "Devouring Plague"
+damage = "dice(1, 10)"
+damage_type = "necrotic"
+resource = "devouring_plague"
+note = "when a creature you see within 30 ft fails a save; you regain as many hit points"
+
+# Shadowform: 1d6 more on one damage roll of a psychic or necrotic slot spell.
+[[feature]]
+id = "subclassFeature:Shadowform|Cleric|XPHB|Shadow|WoW|3|WoW"
+class = "Priest|WoW"
+[[feature.toggle]]
+key = "shadowform"
+name = "Shadowform"
+[[feature.effect]]
+target = "rider.void_empowerment"
+set = "1d6"
+when = "toggle('shadowform')"
+origin = "Void Empowerment: one damage roll of a slot spell dealing psychic or necrotic damage"
+
+# Once per rest: dispersed, Resistance to all damage and a Fly Speed of 40 ft.
+[[feature]]
+id = "subclassFeature:Dispersion|Cleric|XPHB|Shadow|WoW|6|WoW"
+class = "Priest|WoW"
+[[feature.resource]]
+key = "dispersion"
+name = "Dispersion"
+max = "1"
+recharge = "short_rest"
+[[feature.toggle]]
+key = "dispersed"
+name = "Dispersed"
+[[feature.defense]]
+resist = ["all"]
+when = "toggle('dispersed')"
+[[feature.effect]]
+target = "speed.fly"
+max = "40"
+when = "toggle('dispersed')"
+
+# ---- Death Knight ----
+
+# Undead; a pool of d8s spent on a necrotic Con save, or healing an Undead.
+[[feature]]
+id = "classFeature:Death Coil|Death Knight|WoW|1|WoW"
+[[feature.effect]]
+target = "creature_type"
+set = "'undead'"
+[[feature.resource]]
+key = "death_coil"
+name = "Death Coil dice"
+max = "max(1, 1 + mod.cha)"
+recharge = "long_rest"
+[[feature.action]]
+name = "Death Coil"
+save = "con"
+dc = "spell.death_knight.dc"
+damage = "dice(max(1, mod.cha), 8)"
+damage_type = "necrotic"
+resource = "death_coil"
+note = "a Bonus Action, 60 ft; half on a save; up to this many dice, each spent from the pool"
+[[feature.action]]
+name = "Death Coil (Undead)"
+heal = "dice(max(1, mod.cha), 8)"
+resource = "death_coil"
+note = "an Undead target regains instead; up to this many dice, each spent from the pool"
+
+# 1d8 necrotic on every melee weapon or Unarmed Strike hit.
+[[feature]]
+id = "classFeature:Runic Strikes|Death Knight|WoW|11|WoW"
+[[feature.effect]]
+target = "rider.runic_strikes"
+set = "1d8"
+origin = "Runic Strikes: necrotic, on every melee weapon or Unarmed Strike hit"
+
+# Death Coil deals Charisma more necrotic, even on a save; heals an Undead by the level more.
+[[feature]]
+id = "classFeature:Improved Death Coil|Death Knight|WoW|14|WoW"
+[[feature.effect]]
+target = "action.death_coil.damage"
+add = "max(1, mod.cha)"
+[[feature.effect]]
+target = "action.death_coil_undead.heal"
+add = "level('Death Knight')"
+
+# The rune is the oath's spell list chosen: Blood temporary hit points, Frost and Unholy extra damage.
+[[feature]]
+id = "subclassFeature:Runeforging|Death Knight|WoW|Ebon Blade|WoW|3|WoW"
+[[feature.action]]
+name = "Blood Rune"
+when = "choice.oath_of_the_ebon_blade == 'Blood'"
+temp_hp = "mod.cha + level('Death Knight')"
+note = "at each Long Rest, and when you drop an enemy to 0 HP wielding the weapon"
+[[feature.effect]]
+target = "rider.frost_rune"
+set = "1d4"
+when = "choice.oath_of_the_ebon_blade == 'Frost'"
+origin = "Frost rune: cold, on a hit with the Light extra attack; your damage ignores cold Resistance"
+[[feature.effect]]
+target = "rider.unholy_rune"
+set = "max(1, mod.cha)"
+when = "choice.oath_of_the_ebon_blade == 'Unholy'"
+origin = "Unholy rune: necrotic, the first creature hit each turn with a Heavy inscribed weapon; your damage ignores necrotic Resistance"
+
+# Frost: a Channel Divinity after Rune Strike, 2d6 cold around its target.
+[[feature]]
+id = "subclassFeature:Runic Power|Death Knight|WoW|Ebon Blade|WoW|3|WoW"
+[[feature.action]]
+name = "Runic Power (Frost)"
+when = "choice.oath_of_the_ebon_blade == 'Frost' or toggle('aspect_of_the_horsemen')"
+damage = "dice(2, 6)"
+damage_type = "cold"
+resource = "channel_divinity_paladin"
+note = "right after Rune Strike: its target and each enemy within 10 ft of it"
+
+# Resistance to cold, necrotic and psychic in your aura.
+[[feature]]
+id = "subclassFeature:Aura of Deathly Endurance|Death Knight|WoW|Ebon Blade|WoW|7|WoW"
+[[feature.defense]]
+resist = ["cold", "necrotic", "psychic"]
+
+# Once per Long Rest; Frost: an 8d6 cold cone in place of an attack.
+[[feature]]
+id = "subclassFeature:Runic Mastery|Death Knight|WoW|Ebon Blade|WoW|15|WoW"
+[[feature.resource]]
+key = "runic_mastery"
+name = "Runic Mastery"
+max = "1"
+recharge = "long_rest"
+[[feature.action]]
+name = "Runic Mastery (Frost)"
+when = "choice.oath_of_the_ebon_blade == 'Frost' or toggle('aspect_of_the_horsemen')"
+save = "dex"
+dc = "spell.death_knight.dc"
+damage = "dice(8, 6)"
+damage_type = "cold"
+resource = "runic_mastery"
+note = "replaces an attack; 30-ft cone; half on a save"
+
+# Once per Long Rest, or restored with a level 5 slot; while on, any rune's actions.
+[[feature]]
+id = "subclassFeature:Aspect of the Horsemen|Death Knight|WoW|Ebon Blade|WoW|20|WoW"
+[[feature.resource]]
+key = "aspect_of_the_horsemen"
+name = "Aspect of the Horsemen"
+max = "1"
+recharge = "long_rest"
+[[feature.toggle]]
+key = "aspect_of_the_horsemen"
+name = "Aspect of the Horsemen"
+
+# ---- Demon Hunter ----
+
+# Expertise in one skill.
+[[feature]]
+id = "classFeature:Deft Explorer|Demon Hunter|WoW|2|WoW"
+[[feature.choice]]
+pick = "expertise"
+count = "1"
+
+# Truesight 30 ft.
+[[feature]]
+id = "classFeature:Improved Spectral Sight|Demon Hunter|WoW|18|WoW"
+[[feature.effect]]
+target = "sense.truesight"
+max = "30"
+
+# Wisdom-modifier soul fragments per Long Rest, one more at 13 and two at 17; both uses gained.
+[[feature]]
+id = "subclassFeature:Soul Fragments|Demon Hunter|WoW|Demon Hunter|WoW|3|WoW"
+all_options = true
+[[feature.resource]]
+key = "soul_fragment"
+name = "Soul Fragment"
+max = "max(1, mod.wis) + scale(level('Demon Hunter'), {13: 1, 17: 2})"
+recharge = "long_rest"
+
+# Both new uses of soul fragments gained.
+[[feature]]
+id = "subclassFeature:Illidari Knowledge|Demon Hunter|WoW|Demon Hunter|WoW|11|WoW"
+all_options = true
+
+# A soul fragment: psychic around you in place of an attack, healing you.
+[[feature]]
+id = "subclassFeature:Soul Cleave|Demon Hunter|WoW|Demon Hunter|WoW|3|WoW"
+[[feature.action]]
+name = "Soul Cleave"
+save = "dex"
+dc = "spell.demon_hunter.dc"
+damage = "dice(1, 12) + mod.wis"
+damage_type = "psychic"
+heal = "mod.wis"
+resource = "soul_fragment"
+note = "once a turn, replaces an attack; 10-ft emanation; no damage on a save; you regain the heal"
+
+# Blindsight 10 ft.
+[[feature]]
+id = "subclassFeature:Spectral Sight|Demon Hunter|WoW|Demon Hunter|WoW|3|WoW"
+[[feature.effect]]
+target = "sense.blindsight"
+max = "10"
+
+# Chaos Strike: 1d8 fire once a turn on your Hunter's Mark target.
+[[feature]]
+id = "subclassFeature:Torment|Demon Hunter|WoW|Demon Hunter|WoW|7|WoW"
+[[feature.effect]]
+target = "rider.chaos_strike"
+set = "1d8"
+origin = "Torment (Chaos Strike): fire, once a turn on a weapon or Ranger spell hit on your Hunter's Mark target"
+
+# Soul Cleave deals 2d12 + Wisdom.
+[[feature]]
+id = "subclassFeature:Soul Shatter|Demon Hunter|WoW|Demon Hunter|WoW|15|WoW"
+[[feature.effect]]
+target = "action.soul_cleave.damage"
+set = "dice(2, 12) + mod.wis"
+
+# ---- Monk ----
+
+# Performance and Brewer's Supplies.
+[[feature]]
+id = "subclassFeature:Bonus Proficiencies|Monk|XPHB|Mystic Brews|WoW|3|WoW"
+[[feature.proficiency]]
+skills = ["performance"]
+tools = ["Brewer's Supplies"]
+
+# The brews: Cinnamon Dragon's breath, Heavenly Spirit's two Resistances, Refreshing Dip's dice.
+[[feature]]
+id = "subclassFeature:Mystic Brew|Monk|XPHB|Mystic Brews|WoW|6|WoW"
+[[feature.action]]
+name = "Cinnamon Dragon"
+when = "toggle('brew_cinnamon_dragon')"
+save = "dex"
+dc = "8 + mod.wis + prof"
+damage = "4 * class.monk.martial_arts"
+damage_type = "fire"
+note = "a Magic action, 30-ft cone; Poisoned on a fail, half damage on a save"
+[[feature.resource]]
+key = "refreshing_dip"
+name = "Refreshing Dip"
+max = "max(0, mod.wis + floor(level('Monk') / 2))"
+recharge = "short_rest"
+[[feature.action]]
+name = "Refreshing Dip"
+when = "toggle('brew_refreshing_dip')"
+heal = "class.monk.martial_arts"
+resource = "refreshing_dip"
+note = "added when you regain hit points"
+[[feature.toggle]]
+key = "brew_cinnamon_dragon"
+name = "Cinnamon Dragon"
+[[feature.toggle]]
+key = "brew_heavenly_spirit"
+name = "Heavenly Spirit"
+[[feature.toggle]]
+key = "brew_refreshing_dip"
+name = "Refreshing Dip"
+[[feature.choice]]
+key = "Heavenly Spirit"
+pick = "option"
+count = "2"
+options = ["Cold", "Necrotic", "Psychic", "Radiant"]
+[[feature.defense]]
+resist = ["cold"]
+when = "toggle('brew_heavenly_spirit') and choice.heavenly_spirit.cold"
+[[feature.defense]]
+resist = ["necrotic"]
+when = "toggle('brew_heavenly_spirit') and choice.heavenly_spirit.necrotic"
+[[feature.defense]]
+resist = ["psychic"]
+when = "toggle('brew_heavenly_spirit') and choice.heavenly_spirit.psychic"
+[[feature.defense]]
+resist = ["radiant"]
+when = "toggle('brew_heavenly_spirit') and choice.heavenly_spirit.radiant"
+
+# Both of its benefits gained.
+[[feature]]
+id = "subclassFeature:Tipsy Sway|Monk|XPHB|Mystic Brews|WoW|6|WoW"
+all_options = true
+
+# ---- Monk (WoW) ----
+
+# Performance and Brewer's Supplies.
+[[feature]]
+id = "subclassFeature:Bonus Proficiencies|Monk|XPHB|Mystic Brews|WoW|3|WoW"
+class = "Monk|WoW"
+[[feature.proficiency]]
+skills = ["performance"]
+tools = ["Brewer's Supplies"]
+
+# The brews: Cinnamon Dragon's breath, Heavenly Spirit's two Resistances, Refreshing Dip's dice.
+[[feature]]
+id = "subclassFeature:Mystic Brew|Monk|XPHB|Mystic Brews|WoW|6|WoW"
+class = "Monk|WoW"
+[[feature.action]]
+name = "Cinnamon Dragon"
+when = "toggle('brew_cinnamon_dragon')"
+save = "dex"
+dc = "8 + mod.wis + prof"
+damage = "4 * class.monk.martial_arts"
+damage_type = "fire"
+note = "a Magic action, 30-ft cone; Poisoned on a fail, half damage on a save"
+[[feature.resource]]
+key = "refreshing_dip"
+name = "Refreshing Dip"
+max = "max(0, mod.wis + floor(level('Monk') / 2))"
+recharge = "short_rest"
+[[feature.action]]
+name = "Refreshing Dip"
+when = "toggle('brew_refreshing_dip')"
+heal = "class.monk.martial_arts"
+resource = "refreshing_dip"
+note = "added when you regain hit points"
+[[feature.toggle]]
+key = "brew_cinnamon_dragon"
+name = "Cinnamon Dragon"
+[[feature.toggle]]
+key = "brew_heavenly_spirit"
+name = "Heavenly Spirit"
+[[feature.toggle]]
+key = "brew_refreshing_dip"
+name = "Refreshing Dip"
+[[feature.choice]]
+key = "Heavenly Spirit"
+pick = "option"
+count = "2"
+options = ["Cold", "Necrotic", "Psychic", "Radiant"]
+[[feature.defense]]
+resist = ["cold"]
+when = "toggle('brew_heavenly_spirit') and choice.heavenly_spirit.cold"
+[[feature.defense]]
+resist = ["necrotic"]
+when = "toggle('brew_heavenly_spirit') and choice.heavenly_spirit.necrotic"
+[[feature.defense]]
+resist = ["psychic"]
+when = "toggle('brew_heavenly_spirit') and choice.heavenly_spirit.psychic"
+[[feature.defense]]
+resist = ["radiant"]
+when = "toggle('brew_heavenly_spirit') and choice.heavenly_spirit.radiant"
+
+# Both of its benefits gained.
+[[feature]]
+id = "subclassFeature:Tipsy Sway|Monk|XPHB|Mystic Brews|WoW|6|WoW"
+class = "Monk|WoW"
+all_options = true
+
+# ---- Paladin ----
+
+# Once per Long Rest (or a level 5 slot): the aura heals Bloodied allies.
+[[feature]]
+id = "subclassFeature:Holy Deliverance|Paladin|XPHB|Holy|WoW|20|WoW"
+[[feature.resource]]
+key = "holy_deliverance"
+name = "Holy Deliverance"
+max = "1"
+recharge = "long_rest"
+[[feature.toggle]]
+key = "holy_deliverance"
+name = "Holy Deliverance"
+[[feature.action]]
+name = "Healing Power"
+when = "toggle('holy_deliverance')"
+heal = "mod.cha + prof"
+note = "each Bloodied ally starting its turn in your aura"
+
+# ---- Paladin (WoW) ----
+
+# Once per Long Rest (or a level 5 slot): the aura heals Bloodied allies.
+[[feature]]
+id = "subclassFeature:Holy Deliverance|Paladin|XPHB|Holy|WoW|20|WoW"
+class = "Paladin|WoW"
+[[feature.resource]]
+key = "holy_deliverance"
+name = "Holy Deliverance"
+max = "1"
+recharge = "long_rest"
+[[feature.toggle]]
+key = "holy_deliverance"
+name = "Holy Deliverance"
+[[feature.action]]
+name = "Healing Power"
+when = "toggle('holy_deliverance')"
+heal = "mod.cha + prof"
+note = "each Bloodied ally starting its turn in your aura"
+
+# ---- Ranger ----
+
+# The pet's family: Cunning speed, Tenacity hit points; its spell once per Long Rest.
+[[feature]]
+id = "classFeature:Pet Specialization|Ranger|XPHB|6|WoW"
+[[feature.choice]]
+key = "Pet Specialization"
+pick = "option"
+options = ["Cunning", "Ferocity", "Tenacity"]
+[[feature.effect]]
+target = "speed"
+add = "10"
+when = "choice.pet_specialization == 'Cunning'"
+[[feature.effect]]
+target = "hp.max"
+add = "level('Ranger')"
+when = "choice.pet_specialization == 'Tenacity'"
+[[feature.resource]]
+key = "pet_spell"
+name = "Pet's spell"
+max = "1"
+recharge = "long_rest"
+
+# ---- Hunter (the Ranger's features) ----
+
+# The pet's family: Cunning speed, Tenacity hit points; its spell once per Long Rest.
+[[feature]]
+id = "classFeature:Pet Specialization|Ranger|XPHB|6|WoW"
+class = "Hunter|WoW"
+[[feature.choice]]
+key = "Pet Specialization"
+pick = "option"
+options = ["Cunning", "Ferocity", "Tenacity"]
+[[feature.effect]]
+target = "speed"
+add = "10"
+when = "choice.pet_specialization == 'Cunning'"
+[[feature.effect]]
+target = "hp.max"
+add = "level('Hunter')"
+when = "choice.pet_specialization == 'Tenacity'"
+[[feature.resource]]
+key = "pet_spell"
+name = "Pet's spell"
+max = "1"
+recharge = "long_rest"
+
+# ---- Rogue ----
+
+# Charisma modifier to Initiative.
+[[feature]]
+id = "subclassFeature:Rakish Audacity|Rogue|XPHB|Swashbuckler|WoW|3|WoW"
+[[feature.effect]]
+target = "initiative"
+add = "max(0, mod.cha)"
+
+# ---- Rogue (WoW) ----
+
+# Charisma modifier to Initiative.
+[[feature]]
+id = "subclassFeature:Rakish Audacity|Rogue|XPHB|Swashbuckler|WoW|3|WoW"
+class = "Rogue|WoW"
+[[feature.effect]]
+target = "initiative"
+add = "max(0, mod.cha)"
