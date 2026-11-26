@@ -2,9 +2,10 @@
 # here: import the book itself to use them.
 #
 # Its classes are the 2024 classes they are made from (the Shaman is the
-# Barbarian, the Warrior the Fighter, …), so first come dnt's built-in
-# rules for those classes, copied for each WoW class (the same rules,
-# naming it). Then the rules for the book's own features.
+# Barbarian, the Warrior the Fighter, …), so first come the 2024 rules
+# for those classes (players-handbook-2024.toml), copied for each WoW
+# class (the same rules, naming it). Then the rules for the book's own
+# features.
 
 # ======== The 2024 classes' rules, for the WoW classes ========
 

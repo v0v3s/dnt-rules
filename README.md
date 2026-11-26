@@ -4,14 +4,14 @@ Rules for [dnt](https://github.com/v0v3s/dungeons-n-terminals), the D&D 5e
 companion: what a feature does to a character sheet (its uses, the Armor
 Class it gives, the speed it adds…), so the sheet does the maths.
 
-dnt has many rules built in. This repository collects the rest, for anyone
-to use and add to:
+dnt has the SRD 5.2.1's rules built in. Every other book's rules are
+here, for anyone to use and add to:
 
 | Folder | Rules for |
 |---|---|
-| [`srd/`](srd) | the SRD 5.2.1, which dnt has built in |
+| [`srd/`](srd) | the SRD 5.2.1: more than dnt has built in |
+| [`books/`](books) | published books, such as the 2014 and 2024 Player's Handbooks (only the rules: import the book itself into dnt) |
 | [`homebrew/`](homebrew) | homebrew (only the rules: import the homebrew itself into dnt) |
-| [`books/`](books) | published books dnt does not have (only the rules: import the book itself into dnt) |
 
 ## Using them
 
