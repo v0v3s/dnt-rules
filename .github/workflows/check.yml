@@ -26,3 +26,6 @@ jobs:
       - name: Homebrew rules (the homebrew is not here)
         working-directory: dnt
         run: cargo run -q -p dnt-rules --example check_overlays -- --parse-only data/srd ../rules/homebrew/*.toml
+      - name: Book rules (the books are not here)
+        working-directory: dnt
+        run: cargo run -q -p dnt-rules --example check_overlays -- --parse-only data/srd ../rules/books/*.toml

@@ -1,0 +1,199 @@
+# Rules for the 2014 Player's Handbook (PHB): what its conditions and
+# features do.
+
+
+# ---- Conditions ----
+
+[[feature]]
+id = "condition:Blinded|PHB"
+summary = "Disadvantage on attacks; attacks against you have Advantage; fail sight checks"
+
+[[feature.roll]]
+rolls = "roll.attack"
+mode = "disadvantage"
+
+[[feature]]
+id = "condition:Charmed|PHB"
+summary = "Can't attack the charmer; it has Advantage on social checks against you"
+
+[[feature]]
+id = "condition:Deafened|PHB"
+summary = "Fail checks that need hearing"
+
+[[feature]]
+id = "condition:Frightened|PHB"
+summary = "Disadvantage on checks and attacks while you see the source; can't move closer"
+
+[[feature.roll]]
+rolls = "roll.attack or roll.check"
+mode = "disadvantage"
+
+[[feature]]
+id = "condition:Grappled|PHB"
+summary = "Speed 0; Disadvantage on attacks against anyone but the grappler"
+
+[[feature.effect]]
+target = "speed"
+min = "0"
+
+[[feature]]
+id = "condition:Incapacitated|PHB"
+summary = "No actions or reactions"
+
+[[feature]]
+id = "condition:Invisible|PHB"
+summary = "Advantage on attacks and Initiative; attacks against you have Disadvantage"
+
+[[feature.roll]]
+rolls = "roll.attack or roll.initiative"
+mode = "advantage"
+
+[[feature]]
+id = "condition:Paralyzed|PHB"
+summary = "Incapacitated, speed 0, fail Str and Dex saves; hits within 5 ft. are critical"
+
+[[feature.effect]]
+target = "speed"
+min = "0"
+
+[[feature.roll]]
+rolls = "roll.save and (roll.str or roll.dex)"
+mode = "fail"
+note = "Strength and Dexterity saves fail"
+
+[[feature]]
+id = "condition:Petrified|PHB"
+summary = "Incapacitated, speed 0, fail Str and Dex saves; resistance to all damage"
+
+[[feature.effect]]
+target = "speed"
+min = "0"
+
+[[feature.roll]]
+rolls = "roll.save and (roll.str or roll.dex)"
+mode = "fail"
+note = "Strength and Dexterity saves fail"
+
+[[feature]]
+id = "condition:Poisoned|PHB"
+summary = "Disadvantage on attack rolls and ability checks"
+
+[[feature.roll]]
+rolls = "roll.attack or roll.check"
+mode = "disadvantage"
+
+[[feature]]
+id = "condition:Prone|PHB"
+summary = "Disadvantage on attacks; attacks within 5 ft. have Advantage against you"
+
+[[feature.roll]]
+rolls = "roll.attack"
+mode = "disadvantage"
+
+[[feature]]
+id = "condition:Restrained|PHB"
+summary = "Speed 0; Disadvantage on attacks and Dex saves"
+
+[[feature.effect]]
+target = "speed"
+min = "0"
+
+[[feature.roll]]
+rolls = "roll.attack or (roll.save and roll.dex)"
+mode = "disadvantage"
+
+[[feature]]
+id = "condition:Stunned|PHB"
+summary = "Incapacitated, fail Str and Dex saves; attacks against you have Advantage"
+
+[[feature.roll]]
+rolls = "roll.save and (roll.str or roll.dex)"
+mode = "fail"
+note = "Strength and Dexterity saves fail"
+
+[[feature]]
+id = "condition:Unconscious|PHB"
+summary = "Incapacitated, Prone, speed 0, fail Str and Dex saves; hits within 5 ft. are critical"
+
+[[feature.effect]]
+target = "speed"
+min = "0"
+
+[[feature.roll]]
+rolls = "roll.save and (roll.str or roll.dex)"
+mode = "fail"
+note = "Strength and Dexterity saves fail"
+
+[[feature]]
+id = "condition:Exhaustion|PHB"
+levels = [
+  "disadvantage on ability checks",
+  "disadvantage on ability checks, speed halved",
+  "disadvantage on ability checks, speed halved, disadvantage on attacks and saves",
+  "disadvantage on ability checks, speed halved, disadvantage on attacks and saves, hit point maximum halved",
+  "disadvantage on ability checks, speed halved, disadvantage on attacks and saves, hit point maximum halved, speed 0",
+  "death",
+]
+
+[[feature.effect]]
+target = "speed"
+mul = "1 / 2"
+when = "exhaustion >= 2"
+origin = "Exhaustion 2+: speed halved"
+
+[[feature.effect]]
+target = "hp.max"
+mul = "1 / 2"
+when = "exhaustion >= 4"
+origin = "Exhaustion 4+: hit point maximum halved"
+
+[[feature.effect]]
+target = "speed"
+min = "0"
+when = "exhaustion >= 5"
+origin = "Exhaustion 5"
+
+[[feature.roll]]
+rolls = "roll.check"
+mode = "disadvantage"
+
+[[feature.roll]]
+rolls = "exhaustion >= 3 and (roll.attack or roll.save)"
+mode = "disadvantage"
+
+
+# ---- Monk ----
+
+[[feature]]
+id = "classFeature:Martial Arts|Monk|PHB|1"
+name = "Martial Arts (2014)"
+# Monk weapons: shortswords, and simple melee weapons neither Two-Handed
+# nor Heavy.
+[[feature.attack]]
+kind = "monk weapon"
+weapons = "weapon.melee and (weapon.name == 'shortsword' or (weapon.simple and not weapon.two_handed and not weapon.heavy))"
+ability = "max(mod.str, mod.dex)"
+die = "class.monk.martial_arts"
+
+
+# ---- Fighting styles ----
+
+[[feature]]
+id = "feat:Dual Wielder|PHB"
+name = "Dual Wielder (2014)"
+[[feature.offhand]]
+main = "main.melee and not main.two_handed"
+off = "weapon.melee and not weapon.two_handed"
+note = "Dual Wielder: one-handed melee weapons in both hands"
+[[feature.effect]]
+target = "ac"
+add = "1"
+when = "hands.two_melee"
+
+[[feature]]
+id = "optionalfeature:Great Weapon Fighting|PHB"
+name = "Great Weapon Fighting (2014)"
+[[feature.attack]]
+weapons = "weapon.melee and (weapon.two_handed or (weapon.versatile and weapon.both_hands))"
+reroll = 2
+note = "Great Weapon Fighting: reroll 1s and 2s on damage dice once"
